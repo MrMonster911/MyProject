@@ -1,0 +1,7 @@
+Ex 1.1:
+echo cd ~/environment/\;wget https://us-west-2-tcdev.s3.amazonaws.com/courses/AWS-100-ADD/v1.0.0/exercises/ex-cloud9.zip -O ~/ex-cloud9.zip\;unzip -o ~/ex-cloud9.zip\;sudo pip-3.6 install -r FlaskApp/requirements.txt\;sudo service mysqld start\;sudo chkconfig mysqld on\;mysqladmin -u root password ‘AWSCpwd31’\;sed -i 's/REPLACE_WITH_WEB_USER_PASSWORD/AWSC1234/g' SetupScripts/create_schema.sql\;mysql -h localhost -u root -p \< SetupScripts/create_schema.sql\;PASSWORD=AWSCpwd31 python3 SetupScripts/database_populate.py > installRoutes.sh
+export DATABASE_HOST=localhost;export DATABASE_USER=web_user;export DATABASE_PASSWORD=AWSC1234;export DATABASE_DB_NAME=routes;/usr/bin/python3.6 ~/environment/FlaskApp/application.py &
+
+Ex 1.2:
+wget https://us-west-2-tcdev.s3.amazonaws.com/courses/AWS-100-ADD/v1.0.0/exercises/ex-beanstalk.zip -O ~/ex-beanstalk.zip;cd ~/environment;unzip -o ~/ex-beanstalk.zip;sed -i 's/REPLACE_WITH_ROOT_PASSWORD/AWSCpwd31/g';sed -i 's/REPLACE_WITH_WEB_USER_PASSWORD/AWSC1234/g'
+cd ~/environment/FlaskApp/;zip -r ~/eb.zip requirements.txt *.py static/ templates/ .ebextensions/
